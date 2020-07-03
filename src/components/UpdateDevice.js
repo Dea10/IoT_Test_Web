@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import AddDevice from './AddDevice';
-
 import * as firebase from "firebase/app";
 import "firebase/database";
 
@@ -60,7 +58,7 @@ const UpdateDevice = ({ id, label, manufacturer, type, state }) => {
 
     return (
         <div>
-            <button onClick={handleUpdate}>Update</button>
+            <button className='btn btn-warning' onClick={handleUpdate}>Update</button>
             {
                 update && <form onSubmit={handleSubmit}>
                     <label>
@@ -68,6 +66,7 @@ const UpdateDevice = ({ id, label, manufacturer, type, state }) => {
                     <input
                             name='id'
                             type="text"
+                            className = 'form-control'
                             value={inputValue.id}
                             onChange={handleInputChange}
                         />
@@ -78,6 +77,7 @@ const UpdateDevice = ({ id, label, manufacturer, type, state }) => {
                     <input
                             name='label'
                             type="text"
+                            className = 'form-control'
                             value={inputValue.label}
                             onChange={handleInputChange}
                         />
@@ -88,6 +88,7 @@ const UpdateDevice = ({ id, label, manufacturer, type, state }) => {
                     <input
                             name='manufacturer'
                             type="text"
+                            className = 'form-control'
                             value={inputValue.manufacturer}
                             onChange={handleInputChange}
                         />
@@ -98,6 +99,7 @@ const UpdateDevice = ({ id, label, manufacturer, type, state }) => {
                     <input
                             name='type'
                             type="text"
+                            className = 'form-control'
                             value={inputValue.type}
                             onChange={handleInputChange}
                         />
@@ -108,12 +110,13 @@ const UpdateDevice = ({ id, label, manufacturer, type, state }) => {
                     <input
                             name='state'
                             type="text"
+                            className = 'form-control'
                             value={inputValue.state}
                             onChange={handleInputChange}
                         />
                     </label>
                     <br />
-                    <input type="submit" value="Submit" />
+                    <input className='btn btn-primary' type="submit" value="Submit" />
                 </form>
             }
         </div>

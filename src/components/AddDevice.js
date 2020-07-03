@@ -55,6 +55,7 @@ const AddDevice = () => {
                     <input
                     name='id'
                     type="text"
+                    className = 'form-control'
                     value={inputValue.id}
                     onChange={handleInputChange}
                 />
@@ -65,6 +66,7 @@ const AddDevice = () => {
                     <input
                     name='label'
                     type="text"
+                    className = 'form-control'
                     value={inputValue.label}
                     onChange={handleInputChange}
                 />
@@ -75,6 +77,7 @@ const AddDevice = () => {
                     <input
                     name='manufacturer'
                     type="text"
+                    className = 'form-control'
                     value={inputValue.manufacturer}
                     onChange={handleInputChange}
                 />
@@ -85,6 +88,7 @@ const AddDevice = () => {
                     <input
                     name='type'
                     type="text"
+                    className = 'form-control'
                     value={inputValue.type}
                     onChange={handleInputChange}
                 />
@@ -95,12 +99,13 @@ const AddDevice = () => {
                     <input
                     name='state'
                     type="text"
+                    className = 'form-control'
                     value={inputValue.state}
                     onChange={handleInputChange}
                 />
             </label>
             <br />
-            <input type="submit" value="Submit" />
+            <input className='btn btn-primary' type="submit" value="Submit" />
         </form>
     )
 }

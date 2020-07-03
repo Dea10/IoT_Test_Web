@@ -16,7 +16,7 @@ const DeleteDevice = (props) => {
     return(
         <div>
             <span>{props.id} - {props.label}</span>
-            <button onClick={handleDelete}>Delete</button>
+            <button className='btn btn-danger ml-3' onClick={handleDelete}>Delete</button>
         </div>
     )
 }
