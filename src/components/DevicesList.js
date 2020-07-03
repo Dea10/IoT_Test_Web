@@ -60,7 +60,8 @@ const DevicesList = () => {
                 {
                     state.map((device) => {
                         return (
-                            <div key={device.id}>
+                            <ul className='list-group' key={device.id}>
+                                
                                 <DeleteDevice
                                     label={device.label}
                                     id={device.id}
@@ -72,7 +73,7 @@ const DevicesList = () => {
                                     type={device.type}
                                     state={device.state}
                                 />
-                            </div>
+                            </ul>
                         )
                     })
                 }

@@ -14,10 +14,10 @@ const DeleteDevice = (props) => {
     }
 
     return(
-        <div>
-            <span>{props.id} - {props.label}</span>
+        <li className='list-group-item dflex'>
+            <span className='flex-grow-1'>{props.id} - {props.label}</span>
             <button className='btn btn-danger ml-3' onClick={handleDelete}>Delete</button>
-        </div>
+        </li>
     )
 }
 

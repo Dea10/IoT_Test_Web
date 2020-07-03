@@ -61,60 +61,70 @@ const UpdateDevice = ({ id, label, manufacturer, type, state }) => {
             <button className='btn btn-warning' onClick={handleUpdate}>Update</button>
             {
                 update && <form onSubmit={handleSubmit}>
-                    <label>
-                        id:
-                    <input
-                            name='id'
-                            type="text"
-                            className = 'form-control'
-                            value={inputValue.id}
-                            onChange={handleInputChange}
-                        />
-                    </label>
+                    <div className='form-group row'>
+                        <label className='col-sm-2 col-form-label'>id:</label>
+                        <div className='col-sm-10'>
+                            <input
+                                name='id'
+                                type="text"
+                                className='form-control'
+                                value={inputValue.id}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                    </div>
                     <br />
-                    <label>
-                        label:
-                    <input
-                            name='label'
-                            type="text"
-                            className = 'form-control'
-                            value={inputValue.label}
-                            onChange={handleInputChange}
-                        />
-                    </label>
+                    <div className='form-group row'>
+                        <label className='col-sm-2 col-form-label'>label:</label>
+                        <div className='col-sm-10'>
+                            <input
+                                name='label'
+                                type="text"
+                                className='form-control'
+                                value={inputValue.label}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                    </div>
                     <br />
-                    <label>
-                        manufacturer:
-                    <input
-                            name='manufacturer'
-                            type="text"
-                            className = 'form-control'
-                            value={inputValue.manufacturer}
-                            onChange={handleInputChange}
-                        />
-                    </label>
+                    <div className='form-group row'>
+                        <label className='col-sm-2 col-form-label'>manufacturer:</label>
+                        <div className='col-sm-10'>
+                            <input
+                                name='manufacturer'
+                                type="text"
+                                className='form-control'
+                                value={inputValue.manufacturer}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                    </div>
                     <br />
-                    <label>
-                        type:
-                    <input
-                            name='type'
-                            type="text"
-                            className = 'form-control'
-                            value={inputValue.type}
-                            onChange={handleInputChange}
-                        />
-                    </label>
+                    <div className='form-group row'>
+                        <label className='col-sm-2 col-form-label'>type:</label>
+                        <div className='col-sm-10'>
+                            <input
+                                name='type'
+                                type="text"
+                                className='form-control'
+                                value={inputValue.type}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                    </div>
                     <br />
-                    <label>
-                        state:
-                    <input
-                            name='state'
-                            type="text"
-                            className = 'form-control'
-                            value={inputValue.state}
-                            onChange={handleInputChange}
-                        />
-                    </label>
+                    <div className='form-group row'>
+                        <label className='col-sm-2 col-form-label'>state:</label>
+                        <div className='col-sm-10'>
+                            <input
+                                name='state'
+                                type="text"
+                                className='form-control'
+                                value={inputValue.state}
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                    </div>
                     <br />
                     <input className='btn btn-primary' type="submit" value="Submit" />
                 </form>
