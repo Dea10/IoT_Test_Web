@@ -4,11 +4,12 @@ import React, { useState, useEffect } from 'react';
 import * as firebase from "firebase/app";
 import "firebase/database";
 import AddDevice from './AddDevice';
+import DeleteDevice from './DeleteDevice';
 
 
 const DevicesList = () => {
-    const [state, setState] = useState(['one', 'two']);
-    
+    const [state, setState] = useState([]);
+
 
     const firebaseConfig = {
         apiKey: "AIzaSyC2Y7QCis_lQ6sLualc4zNLaRnf-ptH2G4",
@@ -29,7 +30,7 @@ const DevicesList = () => {
 
     const ref = database.ref('/devices/');
 
-    
+
 
     useEffect(() => {
         ref.on('value', snapshot => {
@@ -38,20 +39,15 @@ const DevicesList = () => {
             console.log(resp);
 
             const devs = []
-            for(let i in resp) {
+            for (let i in resp) {
                 devs.push(resp[i]);
             }
-            
+
             console.log(devs);
 
             setState(devs);
         });
     }, [])
-
-    function handleDelete(id) {
-        console.log(id);
-        ref.child(id).remove();
-    }
 
     return (
         <div>
@@ -62,11 +58,16 @@ const DevicesList = () => {
             <ol>
                 {
                     state.map((device) => {
-                        return(
-                            <li key={device.id}>
-                                {device.label}
-                                <button onClick={handleDelete.bind(this, device.id)}>Delete</button>
-                            </li>
+                        return (
+                            // <li key={device.id}>
+                            //     {device.label}
+                            //     <button onClick={handleDelete.bind(this, device.id)}>Delete</button>
+                            // </li>
+                            <DeleteDevice
+                                key={device.id}
+                                label={device.label}
+                                id={device.id}
+                            />
                         )
                     })
                 }
