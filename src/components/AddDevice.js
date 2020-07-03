@@ -28,7 +28,7 @@ const AddDevice = () => {
         writeUserData(inputValue);
 
         console.log('done!');
-        // setCategories( categories => [inputValue, ...categories]);
+
         setInputValue({
             id: '',
             label: '',
@@ -36,8 +36,6 @@ const AddDevice = () => {
             type: '',
             state: ''
         });
-        
-
     }
 
     const writeUserData = (device) => {

@@ -5,6 +5,7 @@ import * as firebase from "firebase/app";
 import "firebase/database";
 import AddDevice from './AddDevice';
 import DeleteDevice from './DeleteDevice';
+import UpdateDevice from './UpdateDevice';
 
 
 const DevicesList = () => {
@@ -59,15 +60,19 @@ const DevicesList = () => {
                 {
                     state.map((device) => {
                         return (
-                            // <li key={device.id}>
-                            //     {device.label}
-                            //     <button onClick={handleDelete.bind(this, device.id)}>Delete</button>
-                            // </li>
-                            <DeleteDevice
-                                key={device.id}
-                                label={device.label}
-                                id={device.id}
-                            />
+                            <div key={device.id}>
+                                <DeleteDevice
+                                    label={device.label}
+                                    id={device.id}
+                                />
+                                <UpdateDevice 
+                                    id={device.id}
+                                    label={device.label}
+                                    manufacturer={device.manufacturer}
+                                    type={device.type}
+                                    state={device.state}
+                                />
+                            </div>
                         )
                     })
                 }

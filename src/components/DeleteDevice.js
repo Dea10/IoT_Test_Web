@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import * as firebase from "firebase/app";
 import "firebase/database";
@@ -10,7 +10,6 @@ const DeleteDevice = (props) => {
     const ref = database.ref('/devices/');
 
     const handleDelete = () => {
-        //console.log(id);
         ref.child(props.id).remove();
     }
 
