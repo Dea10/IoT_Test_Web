@@ -48,7 +48,10 @@ const DevicesList = () => {
         });
     }, [])
 
-   
+    function handleDelete(id) {
+        console.log(id);
+        ref.child(id).remove();
+    }
 
     return (
         <div>
@@ -60,7 +63,10 @@ const DevicesList = () => {
                 {
                     state.map((device) => {
                         return(
-                            <li key={device.id}>{device.label}</li>
+                            <li key={device.id}>
+                                {device.label}
+                                <button onClick={handleDelete.bind(this, device.id)}>Delete</button>
+                            </li>
                         )
                     })
                 }
