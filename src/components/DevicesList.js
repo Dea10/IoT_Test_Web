@@ -2,29 +2,24 @@ import React from 'react';
 import DeviceListItem from './DeviceListItem';
 import AddDevice from './AddDevice';
 
-const DevicesList = () => {
+import devices from '../db/devices';
 
-    const devices = [
-        {
-            id: '001',
-            type: 'light',
-            label: 'label001'
-        },
-        {
-            id: '002',
-            type: 'fan',
-            label: 'label002'
-        },
-        {
-            id: '003',
-            type: 'light',
-            label: 'label003'
-        }
-    ];
+const DevicesList = () => {
 
     return (
         <div>
-            <h2>Devices <AddDevice /></h2>
+            <div className='container'>
+                <div className="row">
+                    <div className="col-sm">
+                        <h2>Devices</h2>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-sm">
+                        <AddDevice />
+                    </div>
+                </div>
+            </div>
 
             <ul className='list-group list-group-flush'>
                 {
