@@ -5,11 +5,11 @@ import DeleteDevice from './DeleteDevice';
 
 const DeviceListItem = (props) => {
 
-    const {id, label} = props;
+    const {_id, label} = props;
 
     return (
         <>
-            <li className='list-group-item'>{ id } - { label } <UpdateDevice /> <ControlDevice /> <DeleteDevice /></li>
+            <li className='list-group-item'>{ label } <UpdateDevice /> <ControlDevice /> <DeleteDevice _id={_id} /></li>
         </>
     )
 }

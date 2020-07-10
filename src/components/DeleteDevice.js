@@ -1,10 +1,24 @@
 import React from 'react';
+import Axios from 'axios';
 
-const DeleteDevice = () => {
+const DeleteDevice = (props) => {
+
+    const {_id} = props;
+
+    const handleDelete = () => {
+        console.log(_id);
+        Axios.delete(`http://localhost:8080/device/${_id}`)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
 
     return(
         <>
-            <button className='btn btn-danger float-right'>Delete</button>
+            <button onClick={handleDelete} className='btn btn-danger float-right'>Delete</button>
         </>
     )
 }

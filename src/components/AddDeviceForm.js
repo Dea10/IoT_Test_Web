@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-
-import devices from '../db/devices';
+import Axios from 'axios';
 
 const AddDeviceForm = () => {
 
@@ -13,8 +12,17 @@ const AddDeviceForm = () => {
     const handleOnSubmit = (e) => {
         e.preventDefault();
 
-        devices.push(addDevice);
-        console.log(devices);
+        Axios.post(`http://localhost:8080/device`, {
+            id: addDevice.id,
+            type: addDevice.type,
+            label: addDevice.label
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
 
     const handleOnChange = ({ target }) => {
