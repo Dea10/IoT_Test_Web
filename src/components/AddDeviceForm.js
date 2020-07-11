@@ -14,7 +14,7 @@ const AddDeviceForm = ({ setShowForm }) => {
 
         setShowForm(false);
 
-        Axios.post(`http://localhost:8080/device`, {
+        Axios.post(`https://web-test-back.herokuapp.com/device`, {
             id: addDevice.id,
             type: addDevice.type,
             label: addDevice.label

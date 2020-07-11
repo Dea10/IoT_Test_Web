@@ -10,7 +10,7 @@ const UpdateDeviceForm = ({ device, setShowForm }) => {
         
         setShowForm(false);
 
-        Axios.put(`http://localhost:8080/device/${updateDevice._id}`, updateDevice)
+        Axios.put(`https://web-test-back.herokuapp.com/device/${updateDevice._id}`, updateDevice)
           .then(function (response) {
             console.log(response);
           })

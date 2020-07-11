@@ -7,7 +7,7 @@ const DeleteDevice = (props) => {
 
     const handleDelete = () => {
         console.log(_id);
-        Axios.delete(`http://localhost:8080/device/${_id}`)
+        Axios.delete(`https://web-test-back.herokuapp.com/device/${_id}`)
         .then(function (response) {
             console.log(response);
         })

@@ -10,7 +10,7 @@ const DevicesList = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/device`)
+        axios.get(`https://web-test-back.herokuapp.com/device`)
         .then(function (response) {
             const data = response.data.devices;
             setDevices(data);
