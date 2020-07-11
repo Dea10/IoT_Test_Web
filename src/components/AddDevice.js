@@ -20,7 +20,7 @@ const AddDevice = () => {
                 <br />
                 <div className="row">
                     <div className="col-sm">
-                        {showForm && <AddDeviceForm />}
+                        {showForm && <AddDeviceForm setShowForm = { setShowForm } />}
                     </div>
                 </div>
             </div>

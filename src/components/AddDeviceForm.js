@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Axios from 'axios';
 
-const AddDeviceForm = () => {
+const AddDeviceForm = ({ setShowForm }) => {
 
     const [addDevice, setAddDevice] = useState({
         id: '',
@@ -11,6 +11,8 @@ const AddDeviceForm = () => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
+
+        setShowForm(false);
 
         Axios.post(`http://localhost:8080/device`, {
             id: addDevice.id,
@@ -34,16 +36,6 @@ const AddDeviceForm = () => {
 
     return (
         <form>
-            <div className="form-group row">
-                <label className='col-sm-2 col-form-label'>id</label>
-                <div className='col-sm-10'>
-                    <input
-                        name='id'
-                        type="text"
-                        className="form-control"
-                        onChange={handleOnChange} />
-                </div>
-            </div>
             <div className="form-group row">
                 <label className='col-sm-2 col-form-label'>type</label>
                 <div className='col-sm-10'>

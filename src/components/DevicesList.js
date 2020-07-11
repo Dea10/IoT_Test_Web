@@ -8,8 +8,6 @@ const DevicesList = () => {
     //const url = `http://localhost:8080/device`;
     const [devices, setDevices] = useState([]);
     const [loading, setLoading] = useState(false);
-    
-    console.log('hey')
 
     useEffect(() => {
         axios.get(`http://localhost:8080/device`)
@@ -25,7 +23,7 @@ const DevicesList = () => {
     
     
     return (
-        <div>
+        <div onClick = {() => {setLoading(true)}}>
             <div className='container'>
                 <div className="row">
                     <div className="col-sm">
@@ -33,9 +31,7 @@ const DevicesList = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-sm"
-                        onClick = {() => {setLoading(true)}}
-                    >
+                    <div className="col-sm">
                         <AddDevice />
                     </div>
                 </div>
@@ -45,9 +41,10 @@ const DevicesList = () => {
                 {
                     devices.map(device =>
                         <DeviceListItem
-                            key={device.id}
+                            key={device._id}
                             _id={device._id}
                             label={device.label}
+                            device={device}
                         />)
                 }
             </ul>

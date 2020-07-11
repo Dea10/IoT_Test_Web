@@ -3,13 +3,12 @@ import UpdateDevice from './UpdateDevice';
 import ControlDevice from './ControlDevice';
 import DeleteDevice from './DeleteDevice';
 
-const DeviceListItem = (props) => {
+const DeviceListItem = ({ _id, label, device }) => {
 
-    const {_id, label} = props;
 
     return (
         <>
-            <li className='list-group-item'>{ label } <UpdateDevice /> <ControlDevice /> <DeleteDevice _id={_id} /></li>
+            <li className='list-group-item'>{ label } <UpdateDevice device={device} /> <ControlDevice /> <DeleteDevice _id={_id} /></li>
         </>
     )
 }
