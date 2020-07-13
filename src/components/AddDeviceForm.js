@@ -4,9 +4,12 @@ import Axios from 'axios';
 const AddDeviceForm = ({ setShowForm }) => {
 
     const [addDevice, setAddDevice] = useState({
-        id: '',
-        type: '',
-        label: ''
+        type: 'tv',
+        label: '',
+        manufacturer: '',
+        state: {
+            turnedOn: ''
+        }
     });
 
     const handleOnSubmit = (e) => {
@@ -14,17 +17,15 @@ const AddDeviceForm = ({ setShowForm }) => {
 
         setShowForm(false);
 
-        Axios.post(`https://web-test-back.herokuapp.com/device`, {
-            id: addDevice.id,
-            type: addDevice.type,
-            label: addDevice.label
-          })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        //console.log(addDevice);
+
+        Axios.post(`https://web-test-back.herokuapp.com/device`, addDevice)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     const handleOnChange = ({ target }) => {
@@ -34,16 +35,30 @@ const AddDeviceForm = ({ setShowForm }) => {
         })
     }
 
+    const handleOnStateChange = ({ target }) => {
+        setAddDevice({
+            ...addDevice,
+            state: {
+                ...addDevice.state,
+                [target.name]: target.value
+            }
+        })
+    }
+
     return (
         <form>
             <div className="form-group row">
                 <label className='col-sm-2 col-form-label'>type</label>
                 <div className='col-sm-10'>
-                    <input
+                    <select className="form-control"
                         name='type'
-                        type="text"
-                        className="form-control"
-                        onChange={handleOnChange} />
+                        value={addDevice.type}
+                        onChange={handleOnChange}
+                    >
+                        <option value='tv'>tv</option>
+                        <option value='fan'>fan</option>
+                        <option value='light'>light</option>
+                    </select>
                 </div>
             </div>
             <div className="form-group row">
@@ -56,6 +71,52 @@ const AddDeviceForm = ({ setShowForm }) => {
                         onChange={handleOnChange} />
                 </div>
             </div>
+            <div className="form-group row">
+                <label className='col-sm-2 col-form-label'>manufacturer</label>
+                <div className='col-sm-10'>
+                    <input
+                        name='manufacturer'
+                        type="text"
+                        className="form-control"
+                        onChange={handleOnChange} />
+                </div>
+            </div>
+            {
+                addDevice.type !== 'fan' ?
+                    <div className="form-group row">
+                        <label className='col-sm-2 col-form-label'>state: turnedOn</label>
+                        <div className='col-sm-10'>
+                            <input
+                                name='turnedOn'
+                                type="text"
+                                className="form-control"
+                                onChange={handleOnStateChange} />
+                        </div>
+                    </div>
+                    :
+                    <>
+                        <div className="form-group row">
+                            <label className='col-sm-2 col-form-label'>state: turnedOn</label>
+                            <div className='col-sm-10'>
+                                <input
+                                    name='turnedOn'
+                                    type="text"
+                                    className="form-control"
+                                    onChange={handleOnStateChange} />
+                            </div>
+                        </div>
+                        <div className="form-group row">
+                            <label className='col-sm-2 col-form-label'>state: speed</label>
+                            <div className='col-sm-10'>
+                                <input
+                                    name='speed'
+                                    type="text"
+                                    className="form-control"
+                                    onChange={handleOnStateChange} />
+                            </div>
+                        </div>
+                    </>
+            }
 
             <button onClick={handleOnSubmit} type="submit" className="btn btn-primary">Submit</button>
         </form >

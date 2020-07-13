@@ -37,7 +37,7 @@ const UpdateDeviceForm = ({ device, setShowForm }) => {
                             type="text"
                             className="form-control"
                             value={updateDevice._id}
-                            onChange={handleOnChange}
+                            disabled
                         />
                     </div>
                 </div>
